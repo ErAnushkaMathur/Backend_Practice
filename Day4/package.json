@@ -1,6 +1,7 @@
 {
   "name": "backend_practice",
   "version": "1.0.0",
+  "description": "��#\u0000 \u0000B\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000_\u0000P\u0000r\u0000a\u0000c\u0000t\u0000i\u0000c\u0000e\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,10 +18,8 @@
     "url": "https://github.com/ErAnushkaMathur/Backend_Practice/issues"
   },
   "homepage": "https://github.com/ErAnushkaMathur/Backend_Practice#readme",
-  "description": "",
   "dependencies": {
-    "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "mongoose": "^9.3.2"
+    "mongoose": "^9.3.1"
   }
 }
