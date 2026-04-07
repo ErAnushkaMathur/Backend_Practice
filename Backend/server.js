@@ -3,7 +3,7 @@ const app = require('./src/app')
 const connectToDb = require("./src/config/database")
 
 connectToDb()
-app.listen(3000, (req, res) => {
+app.listen(3000, (req,res)=>{
   console.log("Server is runing on port 3000");
 })
 
