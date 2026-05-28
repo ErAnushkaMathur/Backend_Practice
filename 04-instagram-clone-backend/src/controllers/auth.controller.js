@@ -1,3 +1,7 @@
+const userModel = require("../models/user.model")
+const jwt = require("jsonwebtoken")
+const bcrypt = require("bcryptjs")
+const crypto = require("crypto")
 async function loginController (req, res)  {
   const { email, username, password } = req.body
   const user = await userModel.findOne({
@@ -17,9 +21,8 @@ async function loginController (req, res)  {
       message: "username or email is invalid"
     })
   }
-
-  const hash = crypto.createHash("sha256").update(password).digest("hex")
-  const isPasswordValid = hash === user.password
+  
+  const isPasswordValid = await bcrypt.compare(password , user.password)
 
   if(!isPasswordValid){
     return res.status(401).json({
@@ -69,11 +72,11 @@ async function registerController (req, res)  {
   })
   if (isUserExist) {
     return res.status(409).json({
-      message: "user already exist" + (isUserExist).email == email ? "email already exist" : "username already exist"
+      message: "user already exist  "(isUserExist).email == email ? "email already exist" : "username already exist"
     })
   }
 
-  const hash = crypto.createHash("sha256").update(password).digest("hex")
+  const hash = bcrypt.hash(password , 10)
   const user = await userModel.create({
     email, username, password: hash, bio, profileImage
   })
@@ -101,3 +104,5 @@ module.exports = {
   registerController,
   loginController
 }
+
+// 04-instagram-clone-backend
