@@ -50,6 +50,7 @@ async function loginController (req, res)  {
 
 async function registerController (req, res)  {
   const { email, username, password, bio, profileImage } = req.body
+  console.log(req.body)
 
   // const isUserExistByEmail = await  userModel.findOne({email})
   // if(isUserExistByEmail){
